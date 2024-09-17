@@ -1,0 +1,9 @@
+flask
+flask_SQLAlchemy
+flask_Migrate
+flask_login
+flask_wtf
+#mysqlclient
+flask_socketIO
+python_dotenv
+pymysql

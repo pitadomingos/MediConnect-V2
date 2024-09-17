@@ -1,0 +1,45 @@
+Dashboard template
+{% extends 'base.html' %}
+<div class="left-panel">
+  <!-- Patient Info -->
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.patient_id.label }} {{ form.patient_id() }}
+    <imput type="submit" value="Search">
+  </form>
+  {% if patient_id %}
+</div>
+    <p>Name: {{ patient.name }}</p>
+    <p>Age {{ patient.age }}</p>
+    <p>Address {{ patient.address }}</p>
+    <p>Cell NUmber {{ patient.cell_number }}</p>
+    <p>Allergies {{ patient.allergies }}</p>
+    <p>Home Clinic {{patient.home_clinic }}</p>
+</dev>
+{% endif %}
+<div class="right-panel">
+  <h2>Patient History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Seq</th>
+        <th>Date</th>
+        <th>Diagnosis</th>
+        <th>Prescription</th>
+        <th>Clinic</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for history in patient.history %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ record.date.strftime('%d-%m-%Y') }}'</td>
+        <td>{{ record.diagnosis }}</td>
+        <td>{{ record.prescription }}</td>
+        <td>{{ record.clinic }}</td>
+      </tr>
+      {% endfor %}        
+    </tbody>
+  </table>
+</div>
+{% endblock %}
